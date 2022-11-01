@@ -39,7 +39,9 @@
 
 <script type="text/javascript">
 
-  document.getElementById("shortcodeCopy").value = "sh <(curl tea.xyz) +{{- .Params.maintainer -}}/{{- .Title -}}";
+  let maintainer = "{{- .Params.maintainer -}}/"
+
+  document.getElementById("shortcodeCopy").value = "sh <(curl tea.xyz) +" + maintainer + "{{- .Title -}}";
 
 </script>
 
