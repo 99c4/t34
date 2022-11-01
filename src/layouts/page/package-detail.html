@@ -39,9 +39,13 @@
 
 <script type="text/javascript">
 
-  let maintainer = "{{- .Params.maintainer -}}/"
+  let maintainer = "{{- .Params.maintainer -}}"
 
-  document.getElementById("shortcodeCopy").value = "sh <(curl tea.xyz) +" + maintainer + "{{- .Title -}}";
+  if (maintainer = ""){
+    document.getElementById("shortcodeCopy").value = "sh <(curl tea.xyz) +{{- .Title -}}";
+  } else {
+    document.getElementById("shortcodeCopy").value = "sh <(curl tea.xyz)" + maintainer + "/" + "{{- .Title -}}";
+  }
 
 </script>
 
