@@ -73,7 +73,7 @@ jobs:
 
     - uses: actions/checkout@v3
 
-    - name: Apply Staging Configuration
+    # - name: Apply Staging Configuration
       run: |
         sed -i -e 's/^baseURL\s*=.*$/baseUrl = ""/i' config.toml
         echo "relativeurls = true" >>config.toml
@@ -107,37 +107,37 @@ jobs:
         SOURCE_DIR: 'packages_thumbs_images'
         DEST_DIR: 'Images/packages'
 
-    - run: .github/mk-pantry-accessible.sh ${{ secrets.TEMP_JACOBS_GITHUB_PAT }}
+    # - run: .github/mk-pantry-accessible.sh ${{ secrets.TEMP_JACOBS_GITHUB_PAT }}
 
-    - uses: teaxyz/setup@v0
-      with:
-        target: build
+    # - uses: teaxyz/setup@v0
+    #   with:
+    #     target: build
 
-    - name: Check for broken links
-      uses: lycheeverse/lychee-action@v1
-      with:
-        fail: true
-        args: --verbose --no-progress './public/**/*.md' './public/**/*.html'
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    # - name: Check for broken links
+    #   uses: lycheeverse/lychee-action@v1
+    #   with:
+    #     fail: true
+    #     args: --verbose --no-progress './public/**/*.md' './public/**/*.html'
+    #   env:
+    #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 14
-    - uses: bahmutov/npm-install@v1
-      with:
-        working-directory: .cdk
+    # - uses: actions/setup-node@v3
+    #   with:
+    #     node-version: 14
+    # - uses: bahmutov/npm-install@v1
+    #   with:
+    #     working-directory: .cdk
 
-    - uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+    # - uses: aws-actions/configure-aws-credentials@v1
+    #   with:
+    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #     aws-region: us-east-1
 
-    - name: Deploy to AWS
-      id: cdk_deploy
-      run: yarn deploy
-      working-directory: .cdk
+    # - name: Deploy to AWS
+    #   id: cdk_deploy
+    #   run: yarn deploy
+    #   working-directory: .cdk
   
     - name: Seal Deployment
       uses: bobheadxi/deployments@v1
