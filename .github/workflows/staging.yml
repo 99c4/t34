@@ -73,7 +73,7 @@ jobs:
 
     - uses: actions/checkout@v3
 
-    # - name: Apply Staging Configuration
+    - name: Apply Staging Configuration
       run: |
         sed -i -e 's/^baseURL\s*=.*$/baseUrl = ""/i' config.toml
         echo "relativeurls = true" >>config.toml
