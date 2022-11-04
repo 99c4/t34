@@ -1,6 +1,6 @@
 ---
 title: "Home"
-Description: "Equitable Open-Source for web3"
+Description: "Install tea today"
 layout: "index"
 menu: main
 weight: 1
