@@ -15,6 +15,7 @@ The tea logo and wordmark are registered trademarks of tea.inc.
 * `.html` files in [`./src/layouts/page/`] have a corresponding `.md` file in [`./src/content/`].
 * Repeated components are in [`./src/layouts/partials/`].
 
+
 ## Getting Started
 
 hugo can render your edits while you work:
